@@ -101,7 +101,7 @@ function DealersPage() {
                 type="button"
                 onClick={() => setActive(d)}
                 className={cn(
-                  "flex shrink-0 items-center gap-2 rounded-lg border border-transparent px-2.5 py-2 text-left text-[13px] transition-colors lg:w-full",
+                  "flex shrink-0 items-center gap-2 rounded-lg border border-transparent px-2.5 py-2 text-left text-[13px] transition-colors md:w-full",
                   active === d
                     ? "border-border bg-primary/10 font-semibold text-primary"
                     : "hover:bg-accent/60",
