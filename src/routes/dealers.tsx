@@ -82,7 +82,7 @@ function DealersPage() {
         </div>
       </header>
 
-      <div className="grid gap-3 lg:grid-cols-[268px_minmax(0,1fr)]">
+      <div className="grid gap-3 md:grid-cols-[240px_minmax(0,1fr)]">
         {/* Left: dealer tabs + filter */}
         <aside className="card-surface flex flex-col p-3">
           <div className="relative">
@@ -94,7 +94,7 @@ function DealersPage() {
               className="h-8 pl-8 text-[13px]"
             />
           </div>
-          <nav className="mt-2 flex gap-1.5 overflow-x-auto pb-1 lg:max-h-[70vh] lg:flex-col lg:overflow-x-visible lg:overflow-y-auto lg:pb-0">
+          <nav className="mt-2 flex gap-1.5 overflow-x-auto pb-1 md:max-h-[70vh] md:flex-col md:overflow-x-visible md:overflow-y-auto md:pb-0">
             {dealers.map((d) => (
               <button
                 key={d}
