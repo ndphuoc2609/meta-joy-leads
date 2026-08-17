@@ -167,3 +167,38 @@ export function clockTime(ts: number) {
   const p = (n: number) => n.toString().padStart(2, "0");
   return `${p(d.getHours())}:${p(d.getMinutes())}`;
 }
+
+/** Che số điện thoại kiểu *****878 */
+export function maskPhoneTail(phone: string) {
+  return "*".repeat(Math.max(0, phone.length - 3)) + phone.slice(-3);
+}
+
+export type DealerLead = Lead & {
+  dealer: string;
+  assignedAt: number;
+  recordingSeconds: number;
+};
+
+/** Toàn bộ lead đã phân bổ về đại lý (dùng cho trang "Xem tất cả"). */
+export function buildDealerLeads(now: number): DealerLead[] {
+  const rng = makeRng(777001);
+  return buildLeads(now)
+    .filter((l) => l.stage === "processed" && l.outcome && SUCCESS_OUTCOMES.includes(l.outcome))
+    .map((l, i) => ({
+      ...l,
+      dealer: l.dealer ?? (DEALERS[(i * 3 + 1) % DEALERS.length] as string),
+      assignedAt: l.assignedAt ?? (l.completedAt ?? l.receivedAt) + 15 * 60_000,
+      recordingSeconds: Math.floor(rng() * 210) + 45,
+    }))
+    .sort((a, b) => b.assignedAt - a.assignedAt);
+}
+
+export function formatDateTime(ts: number) {
+  const d = new Date(ts);
+  const p = (n: number) => n.toString().padStart(2, "0");
+  return `${p(d.getDate())}/${p(d.getMonth() + 1)}/${d.getFullYear()} ${p(d.getHours())}:${p(d.getMinutes())}`;
+}
+
+export function formatDuration(s: number) {
+  return `${Math.floor(s / 60)}:${(s % 60).toString().padStart(2, "0")}`;
+}

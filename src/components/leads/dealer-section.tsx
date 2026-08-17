@@ -1,4 +1,5 @@
-import { Building2 } from "lucide-react";
+import { Building2, ChevronRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { timeAgo, type Lead } from "@/lib/leads-data";
 import { cn } from "@/lib/utils";
 
@@ -43,6 +44,13 @@ export function DealerSection({
           </p>
         </div>
         <span className="animate-live-pulse ml-1 size-1.5 shrink-0 rounded-full bg-success" />
+        <Link
+          to="/dealers"
+          className="ml-auto flex shrink-0 items-center gap-1 rounded-full border border-border px-2 py-1 text-[11px] font-medium text-muted-foreground transition-colors hover:bg-accent/60 hover:text-foreground"
+        >
+          Xem tất cả
+          <ChevronRight className="size-3" />
+        </Link>
       </header>
 
       <div className="-mx-1 mt-2.5 flex snap-x gap-2.5 overflow-x-auto px-1 pb-1 lg:grid lg:grid-cols-5 lg:overflow-visible">
