@@ -1,5 +1,5 @@
-import { Building2, ChevronRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { Building2, ChevronRight } from "lucide-react";
 import { timeAgo, type Lead } from "@/lib/leads-data";
 import { cn } from "@/lib/utils";
 
@@ -43,10 +43,9 @@ export function DealerSection({
             Phân bổ tự động sau khi lead đủ điều kiện
           </p>
         </div>
-        <span className="animate-live-pulse ml-1 size-1.5 shrink-0 rounded-full bg-success" />
         <Link
           to="/dealers"
-          className="ml-auto flex shrink-0 items-center gap-1 rounded-full border border-border px-2 py-1 text-[11px] font-medium text-muted-foreground transition-colors hover:bg-accent/60 hover:text-foreground"
+          className="ml-auto inline-flex h-7 shrink-0 items-center gap-1 rounded-full border border-border px-2.5 text-[10px] font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring"
         >
           Xem tất cả
           <ChevronRight className="size-3" />
@@ -71,10 +70,13 @@ export function DealerSection({
                 </p>,
               ]
             : groups.map((group) => (
-                <article
+                <Link
                   key={group.dealer}
+                  to="/dealers"
+                  search={{ dealer: group.dealer }}
+                  aria-label={`Xem lead của ${group.dealer}`}
                   className={cn(
-                    "animate-lead-enter w-[220px] shrink-0 snap-start rounded-xl border border-border p-2.5 lg:w-auto",
+                    "animate-lead-enter w-[220px] shrink-0 snap-start rounded-xl border border-border p-2.5 transition-colors hover:border-primary/30 hover:bg-primary/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring lg:w-auto",
                   )}
                 >
                   <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2">
@@ -99,7 +101,7 @@ export function DealerSection({
                       </li>
                     ))}
                   </ul>
-                </article>
+                </Link>
               ))}
       </div>
     </section>
