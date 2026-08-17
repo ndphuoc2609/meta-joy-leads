@@ -1,4 +1,5 @@
-import { Building2 } from "lucide-react";
+import { Building2, ChevronRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { timeAgo, type Lead } from "@/lib/leads-data";
 import { cn } from "@/lib/utils";
 
