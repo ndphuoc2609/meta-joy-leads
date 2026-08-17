@@ -82,7 +82,7 @@ function DealersPage() {
         </div>
       </header>
 
-      <div className="grid gap-3 lg:grid-cols-[268px_minmax(0,1fr)]">
+      <div className="grid gap-3 md:grid-cols-[240px_minmax(0,1fr)]">
         {/* Left: dealer tabs + filter */}
         <aside className="card-surface flex flex-col p-3">
           <div className="relative">
@@ -94,14 +94,14 @@ function DealersPage() {
               className="h-8 pl-8 text-[13px]"
             />
           </div>
-          <nav className="mt-2 flex gap-1.5 overflow-x-auto pb-1 lg:max-h-[70vh] lg:flex-col lg:overflow-x-visible lg:overflow-y-auto lg:pb-0">
+          <nav className="mt-2 flex gap-1.5 overflow-x-auto pb-1 md:max-h-[70vh] md:flex-col md:overflow-x-visible md:overflow-y-auto md:pb-0">
             {dealers.map((d) => (
               <button
                 key={d}
                 type="button"
                 onClick={() => setActive(d)}
                 className={cn(
-                  "flex shrink-0 items-center gap-2 rounded-lg border border-transparent px-2.5 py-2 text-left text-[13px] transition-colors lg:w-full",
+                  "flex shrink-0 items-center gap-2 rounded-lg border border-transparent px-2.5 py-2 text-left text-[13px] transition-colors md:w-full",
                   active === d
                     ? "border-border bg-primary/10 font-semibold text-primary"
                     : "hover:bg-accent/60",
